@@ -45,11 +45,11 @@ def get_data(config_path):
     # Convert to a dataframe
     df = pd.DataFrame(data_list,columns=['audio','class'])
     # Save it as a csv file
-    dir_to_save, file_name = os.path.join('artifacts',config['local_data_dir'][0]),config['local_data_dir'][1]
+    dir_to_save = os.path.join('artifacts',config['local_data_dir'][0])
     create_directory([dir_to_save])
     # Write the data in the folder
-    np.save(dir_to_save+"X.npy",df['audio'].values)
-    np.save(dir_to_save+"Y.npy",df['class'].values)
+    np.save(dir_to_save+"/X.npy",df['audio'].values)
+    np.save(dir_to_save+"/Y.npy",df['class'].values)
 
     # Log the current activity
     logging.info("Raw Data Saved Successfully")
