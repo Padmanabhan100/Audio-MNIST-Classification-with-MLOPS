@@ -1,0 +1,10 @@
+librosa
+pandas
+numpy
+matplotlib
+seaborn
+sklearn
+tensorflow
+tqdm
+pyYAML
+-e .
