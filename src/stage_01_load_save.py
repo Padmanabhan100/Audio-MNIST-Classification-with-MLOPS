@@ -47,7 +47,7 @@ def get_data(config_path):
     dir_to_save, file_name = config['local_data_dir'][0],config['local_data_dir'][1]
     create_directory([dir_to_save])
     # Write the data in the folder
-    df.to_csv(f"{dir_to_save}/{file_name}",index=False)
+    df.to_csv(f"artifacts/{dir_to_save}/{file_name}",index=False)
 
     # Log the current activity
     logging.info("Raw Data Saved Successfully")
