@@ -6,6 +6,7 @@ from tqdm import tqdm
 import logging
 import numpy as np
 import librosa
+import zipfile
 
 # Crete a logging pattern
 logging_str = "[%(asctime)s: %(levelname)s: %(module)s]: %(message)s"
