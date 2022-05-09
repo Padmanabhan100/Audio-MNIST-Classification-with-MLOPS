@@ -1,1 +1,31 @@
+# Add CI/CD Steps Here
+name: audio_mnist_classification
+on: [push]
+jobs:
+  run:
+    runs-on: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: iterative/setup-cml@v1
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.7'
 
+        - name: cml_run
+          env:
+            repo_token: ${{ secrets.GITHUB_TOKEN }}
+          run: |
+            # Our ML Workflow Commands
+            pip install --upgrade pip
+            pip install -r requirements.txt
+
+            # Run the stages
+            dvc repro -v
+
+            # Print this message in the report
+            echo "Audio MNIST's Classifier Neural Network's Confusion Matrix" >> report.md
+
+            # Display the confusion matrix image in the report
+            cml-publish "confusion_matrix.png" --md >> report.md
+
+            cml-send-comment report.md
