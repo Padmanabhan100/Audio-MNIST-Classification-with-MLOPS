@@ -1,0 +1,3 @@
+train_test_split:
+  random_state: 12
+  train_size: 0.8
