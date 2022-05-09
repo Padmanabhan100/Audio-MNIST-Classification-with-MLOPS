@@ -137,3 +137,8 @@ env
 # ignore the secrets file
 config/secrets.yaml
 /data
+
+# ignore datafiles
+artifacts/clean_data/
+artifacts/train_data/
+artifacts/test_data/
