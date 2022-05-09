@@ -14,5 +14,4 @@ source_data_dir:
   - D:/DATA SCIENCE/Kaggle Datasets/MNIST AUDIO/archive/data/
 
 local_data_dir:
-  - raw_data_dir
-  - raw_data.csv
+  - clean_data
