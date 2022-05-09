@@ -7,7 +7,6 @@ import logging
 import numpy as np
 import librosa
 
-# *********************** Logging Setup ********************************
 # Crete a logging pattern
 logging_str = "[%(asctime)s: %(levelname)s: %(module)s]: %(message)s"
 # name of the logging directory
@@ -18,7 +17,6 @@ os.makedirs(log_dir, exist_ok=True)
 logging.basicConfig(filename=os.path.join(log_dir,"running_logs.log"), 
                     level=logging.INFO, format=logging_str, filemode='a')
 
-# ************************ Loading the data *****************************
 
 def get_data(config_path):
     # Read the Yaml file

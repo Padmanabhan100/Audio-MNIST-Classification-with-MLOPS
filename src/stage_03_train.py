@@ -7,6 +7,17 @@ import os
 import numpy as np
 import logging
 
+# Create a logging pattern
+logging_str = "[%(asctime)s: %(levelname)s: %(module)s]: %(message)s"
+# name of the logging directory
+log_dir = "logs"
+# Create logging file
+os.makedirs(log_dir, exist_ok=True)
+# Configure the logging file
+logging.basicConfig(filename=os.path.join(log_dir,"running_logs.log"), 
+                    level=logging.INFO, format=logging_str, filemode='a')
+
+
 def train(config_path,params_path):
     # Load the config file & params file
     config = read_yaml(config_path)
@@ -59,8 +70,7 @@ def train(config_path,params_path):
     create_directory([trained_model_dir])
 
     # Save Model
-    filepath = os.path.join(trained_model_dir,trained_model_name)
-    model.save(filepath)
+    model.save(trained_model_dir)
 
     # Log the activity
     logging.info("Trained Model Saved Successfully")

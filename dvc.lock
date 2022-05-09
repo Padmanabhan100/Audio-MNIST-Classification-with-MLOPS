@@ -4,8 +4,8 @@ stages:
     cmd: python src/stage_01_load_extract_save.py --config=config/config.yaml
     deps:
     - path: config/config.yaml
-      md5: fca0ea1de2e4d137887f850e232d462d
-      size: 512
+      md5: 7a6a68263061499fd6313faac311900f
+      size: 376
     - path: src/stage_01_load_extract_save.py
       md5: b5ac713ab6ed26f9cad857a444096aff
       size: 3229
@@ -30,21 +30,44 @@ stages:
       md5: 756995622090a740c767d61b7521b182
       size: 2128
     - path: params.yaml
-      md5: 755d50e4913314e881115e6ab2920577
-      size: 58
+      md5: cb5d74ed645cc53943193420f975c900
+      size: 221
     - path: src/stage_02_train_test_split_save.py
-      md5: 5a7f2cc876c97e45b5fc562ff2af972c
-      size: 2411
+      md5: d943688a61c294596b1f7492ba34eccb
+      size: 2385
     outs:
     - path: artifacts/test_data/X_test.npy
       md5: dcb447b2febb0e7bc07a0fd587662fd4
       size: 16128
     - path: artifacts/test_data/Y_test.npy
-      md5: 0692d8df009f39e0c0d1bf9f7c78c743
+      md5: ee8f642ec0ac2163044a9472a96d19b9
       size: 528
     - path: artifacts/train_data/X_train.npy
       md5: bccf6416b7b1cc79068d962b903297c4
       size: 64128
     - path: artifacts/train_data/Y_train.npy
-      md5: 7564399f4f10f30043dd7b656c792dbb
+      md5: 75a49a35c53539aaae40e10e7a32ac73
       size: 1728
+  train_model:
+    cmd: python src/stage_03_train.py --config=config/config.yaml --params=params.yaml
+    deps:
+    - path: artifacts/test_data/X_test.npy
+      md5: dcb447b2febb0e7bc07a0fd587662fd4
+      size: 16128
+    - path: artifacts/test_data/Y_test.npy
+      md5: ee8f642ec0ac2163044a9472a96d19b9
+      size: 528
+    - path: artifacts/train_data/X_train.npy
+      md5: bccf6416b7b1cc79068d962b903297c4
+      size: 64128
+    - path: artifacts/train_data/Y_train.npy
+      md5: 75a49a35c53539aaae40e10e7a32ac73
+      size: 1728
+    - path: src/stage_03_train.py
+      md5: 1869395818eaba38b6f21f36a2cb6b04
+      size: 3459
+    outs:
+    - path: artifacts/checkpoints
+      md5: d7e49ae8bb4ce1a56d493ddd4d73fae9.dir
+      size: 427119
+      nfiles: 4

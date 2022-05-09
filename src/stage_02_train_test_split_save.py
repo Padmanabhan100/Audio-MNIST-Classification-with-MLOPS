@@ -5,6 +5,17 @@ import numpy as np
 import logging
 from sklearn.model_selection import train_test_split
 
+# Crete a logging pattern
+logging_str = "[%(asctime)s: %(levelname)s: %(module)s]: %(message)s"
+# name of the logging directory
+log_dir = "logs"
+# Create logging file
+os.makedirs(log_dir, exist_ok=True)
+# Configure the logging file
+logging.basicConfig(filename=os.path.join(log_dir,"running_logs.log"), 
+                    level=logging.INFO, format=logging_str, filemode='a')
+
+
 def save_train_test_split(config_path,params_path):
     # Load the config file & params file
     config = read_yaml(config_path)
