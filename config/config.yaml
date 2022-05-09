@@ -15,3 +15,5 @@ source_data_dir:
 
 local_data_dir:
   - clean_data
+  - train_data
+  - test_data
