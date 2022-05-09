@@ -45,7 +45,7 @@ def metrics(config_path):
     sns.set_style("dark")
     plt.figure(figsize=(12,8))
     plt.title("CONFUSION MATRIX AUDIO MNIST")
-    sns.heatmap(cm,cbar=False,annot=True,cmap='cool')
+    sns.heatmap(cm,cbar=False,annot=True,cmap='cool',fmt='g')
     plt.xlabel("ACTUAL")
     plt.ylabel("PREDICTED")
     plt.savefig("confusion_matrix.png")
