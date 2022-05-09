@@ -1,5 +1,5 @@
 stages:
-  load_data: 
+  load_extract_save: 
     cmd: python src/stage_01_load_extract_save.py --config=config.yaml
     deps:
       - config/config.yaml
@@ -8,3 +8,4 @@ stages:
     outs:
       - artifacts/clean_data/X.npy
       - artifacts/clean_data/Y.npy
+
