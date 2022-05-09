@@ -10,7 +10,7 @@ stages:
       - artifacts/clean_data/Y.npy
 
   train_test_split_save:
-    cmd: python /src/stage_02_train_test_split_save.py --config=config.yaml --params=params.yaml
+    cmd: python src/stage_02_train_test_split_save.py --config=config/config.yaml --params=params.yaml
     deps:
       - artifacts/clean_data/X.npy
       - artifacts/clean_data/Y.npy
