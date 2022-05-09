@@ -5,6 +5,7 @@ matplotlib
 seaborn
 sklearn
 tensorflow
+librosa
 tqdm
 pyYAML
 -e .

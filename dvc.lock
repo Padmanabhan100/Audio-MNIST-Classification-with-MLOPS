@@ -7,14 +7,14 @@ stages:
       md5: 7a6a68263061499fd6313faac311900f
       size: 376
     - path: src/stage_01_load_extract_save.py
-      md5: b5ac713ab6ed26f9cad857a444096aff
-      size: 3229
+      md5: c2fcf8dbffe1ad40d6134fe50a0d6d29
+      size: 3080
     - path: src/utils/all_utils.py
       md5: bf1e33823cddfd1c3e275d557f8ec303
       size: 925
     outs:
     - path: artifacts/clean_data/X.npy
-      md5: 1bff211284d2c28b5c21e995553e56f2
+      md5: c45fbec84b9e23d2136522685de427ab
       size: 80128
     - path: artifacts/clean_data/Y.npy
       md5: 756995622090a740c767d61b7521b182
@@ -24,7 +24,7 @@ stages:
       --params=params.yaml
     deps:
     - path: artifacts/clean_data/X.npy
-      md5: 1bff211284d2c28b5c21e995553e56f2
+      md5: c45fbec84b9e23d2136522685de427ab
       size: 80128
     - path: artifacts/clean_data/Y.npy
       md5: 756995622090a740c767d61b7521b182
@@ -33,17 +33,17 @@ stages:
       md5: cb5d74ed645cc53943193420f975c900
       size: 221
     - path: src/stage_02_train_test_split_save.py
-      md5: d943688a61c294596b1f7492ba34eccb
-      size: 2385
+      md5: 8673108e374c22084e80db91e26ea428
+      size: 2776
     outs:
     - path: artifacts/test_data/X_test.npy
-      md5: dcb447b2febb0e7bc07a0fd587662fd4
+      md5: 4681a4b4fc70e2077e08d1efa5fd8dc9
       size: 16128
     - path: artifacts/test_data/Y_test.npy
       md5: ee8f642ec0ac2163044a9472a96d19b9
       size: 528
     - path: artifacts/train_data/X_train.npy
-      md5: bccf6416b7b1cc79068d962b903297c4
+      md5: 33073d6e0c1b7e4e1b23e8081bbd0a8f
       size: 64128
     - path: artifacts/train_data/Y_train.npy
       md5: 75a49a35c53539aaae40e10e7a32ac73
@@ -52,22 +52,26 @@ stages:
     cmd: python src/stage_03_train.py --config=config/config.yaml --params=params.yaml
     deps:
     - path: artifacts/test_data/X_test.npy
-      md5: dcb447b2febb0e7bc07a0fd587662fd4
+      md5: 4681a4b4fc70e2077e08d1efa5fd8dc9
       size: 16128
     - path: artifacts/test_data/Y_test.npy
       md5: ee8f642ec0ac2163044a9472a96d19b9
       size: 528
     - path: artifacts/train_data/X_train.npy
-      md5: bccf6416b7b1cc79068d962b903297c4
+      md5: 33073d6e0c1b7e4e1b23e8081bbd0a8f
       size: 64128
     - path: artifacts/train_data/Y_train.npy
       md5: 75a49a35c53539aaae40e10e7a32ac73
       size: 1728
     - path: src/stage_03_train.py
-      md5: 1869395818eaba38b6f21f36a2cb6b04
-      size: 3459
+      md5: f34d92ff3e9cf0cd7e3898fe7938de15
+      size: 3851
     outs:
     - path: artifacts/checkpoints
-      md5: d7e49ae8bb4ce1a56d493ddd4d73fae9.dir
-      size: 427119
+      md5: 6197431cf576252bed9e68e817ea8481.dir
+      size: 429813
+      nfiles: 4
+    - path: artifacts/model
+      md5: 69415b11e9077b28c9c1a968a23acb96.dir
+      size: 429847
       nfiles: 4
