@@ -26,7 +26,7 @@ def get_data(config_path):
     # Loop through each folder(A speaker)
     source_data_dir = config['source_data_dir'][0]
     print(source_data_dir[0])
-    for folder in tqdm(os.listdir(source_data_dir)[:1],colour='green'):
+    for folder in tqdm(os.listdir(source_data_dir)[1:61],colour='green'):
         # Loop through each file(Speaker's audio) and load the data
         for file in tqdm(os.listdir(os.path.join(source_data_dir,folder)),colour='blue'):
             # Load the data

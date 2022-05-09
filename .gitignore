@@ -142,3 +142,4 @@ config/secrets.yaml
 artifacts/clean_data/
 artifacts/train_data/
 artifacts/test_data/
+/confusion_matrix.png

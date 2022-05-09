@@ -29,6 +29,9 @@ stages:
     - path: artifacts/clean_data/Y.npy
       md5: 756995622090a740c767d61b7521b182
       size: 2128
+    - path: config/config.yaml
+      md5: 7a6a68263061499fd6313faac311900f
+      size: 376
     - path: params.yaml
       md5: cb5d74ed645cc53943193420f975c900
       size: 221
@@ -63,15 +66,48 @@ stages:
     - path: artifacts/train_data/Y_train.npy
       md5: 75a49a35c53539aaae40e10e7a32ac73
       size: 1728
+    - path: config/config.yaml
+      md5: 7a6a68263061499fd6313faac311900f
+      size: 376
+    - path: params.yaml
+      md5: cb5d74ed645cc53943193420f975c900
+      size: 221
     - path: src/stage_03_train.py
       md5: f34d92ff3e9cf0cd7e3898fe7938de15
       size: 3851
     outs:
     - path: artifacts/checkpoints
-      md5: 6197431cf576252bed9e68e817ea8481.dir
+      md5: e6d253c624718f46156cb06429b4fed6.dir
       size: 429813
       nfiles: 4
     - path: artifacts/model
-      md5: 69415b11e9077b28c9c1a968a23acb96.dir
+      md5: 0f4a7292a3f34c212144fd3cffc90ee9.dir
       size: 429847
       nfiles: 4
+  metrics:
+    cmd: python src/stage_04_metrics.py --config=config/config.yaml
+    deps:
+    - path: artifacts/checkpoints
+      md5: e6d253c624718f46156cb06429b4fed6.dir
+      size: 429813
+      nfiles: 4
+    - path: artifacts/model
+      md5: 0f4a7292a3f34c212144fd3cffc90ee9.dir
+      size: 429847
+      nfiles: 4
+    - path: artifacts/test_data/X_test.npy
+      md5: 4681a4b4fc70e2077e08d1efa5fd8dc9
+      size: 16128
+    - path: artifacts/test_data/Y_test.npy
+      md5: ee8f642ec0ac2163044a9472a96d19b9
+      size: 528
+    - path: config/config.yaml
+      md5: 7a6a68263061499fd6313faac311900f
+      size: 376
+    - path: src/stage_04_metrics.py
+      md5: 10dc6b71f9681c30b3d44a0a1328c00e
+      size: 2599
+    outs:
+    - path: confusion_matrix.png
+      md5: 59806037828efc6668183be845d73044
+      size: 28073

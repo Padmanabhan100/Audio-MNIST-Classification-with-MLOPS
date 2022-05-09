@@ -10,5 +10,5 @@ model:
 
 training:
   optimizer: adam
-  n_epochs: 1
+  n_epochs: 50
   batch_size: 32
