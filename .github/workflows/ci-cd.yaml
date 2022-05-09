@@ -21,7 +21,7 @@ jobs:
           pip install -r requirements.txt
           pip install kaggle
 
-          sudo mv kaggle.json ~/.local/bin/kaggle
+          sudo mv kaggle.json ~/.kaggle/
           
           # Run the stages
           dvc repro -v
