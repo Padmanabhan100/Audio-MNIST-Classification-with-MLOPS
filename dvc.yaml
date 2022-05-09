@@ -15,7 +15,7 @@ stages:
       - artifacts/clean_data/X.npy
       - artifacts/clean_data/Y.npy
       - params.yaml
-      - stage_02_train_test_split_save.py
+      - src/stage_02_train_test_split_save.py
     outs:
       - artifacts/train_data/X_train.npy
       - artifacts/train_data/Y_train.npy
