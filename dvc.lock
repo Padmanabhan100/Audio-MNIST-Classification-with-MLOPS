@@ -19,3 +19,32 @@ stages:
     - path: artifacts/clean_data/Y.npy
       md5: 756995622090a740c767d61b7521b182
       size: 2128
+  train_test_split_save:
+    cmd: python src/stage_02_train_test_split_save.py --config=config/config.yaml
+      --params=params.yaml
+    deps:
+    - path: artifacts/clean_data/X.npy
+      md5: 1bff211284d2c28b5c21e995553e56f2
+      size: 80128
+    - path: artifacts/clean_data/Y.npy
+      md5: 756995622090a740c767d61b7521b182
+      size: 2128
+    - path: params.yaml
+      md5: 755d50e4913314e881115e6ab2920577
+      size: 58
+    - path: src/stage_02_train_test_split_save.py
+      md5: 5a7f2cc876c97e45b5fc562ff2af972c
+      size: 2411
+    outs:
+    - path: artifacts/test_data/X_test.npy
+      md5: dcb447b2febb0e7bc07a0fd587662fd4
+      size: 16128
+    - path: artifacts/test_data/Y_test.npy
+      md5: 0692d8df009f39e0c0d1bf9f7c78c743
+      size: 528
+    - path: artifacts/train_data/X_train.npy
+      md5: bccf6416b7b1cc79068d962b903297c4
+      size: 64128
+    - path: artifacts/train_data/Y_train.npy
+      md5: 7564399f4f10f30043dd7b656c792dbb
+      size: 1728

@@ -1,8 +1,6 @@
 from src.utils.all_utils import read_yaml, create_directory
 import argparse
-import pandas as pd
 import os
-from tqdm import tqdm
 import numpy as np
 import logging
 from sklearn.model_selection import train_test_split
@@ -17,7 +15,7 @@ def save_train_test_split(config_path,params_path):
 
     # Load the raw data
     X = np.load(f"{clean_data_path}/X.npy")
-    Y = np.load(f"{clean_data_path}/Y.npy")
+    Y = [int(x) for x in np.load(f"{clean_data_path}/Y.npy")]
 
 
     # Perform Train-Test-Split 

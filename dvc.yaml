@@ -21,3 +21,14 @@ stages:
       - artifacts/train_data/Y_train.npy
       - artifacts/test_data/X_test.npy
       - artifacts/test_data/Y_test.npy
+  
+  train_model:
+    cmd:  python src/stage_03_train.py --config=config/config.yaml --params=params.yaml
+    deps:
+      - artifacts/train_data/X_train.npy
+      - artifacts/train_data/Y_train.npy
+      - artifacts/test_data/X_test.npy
+      - artifacts/test_data/Y_test.npy
+    outs:
+      - artifacts/checkpoints/audio_mnist_classifier.h5
+      - src/stage_03_train.py

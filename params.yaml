@@ -1,3 +1,14 @@
 train_test_split:
   random_state: 12
   train_size: 0.8
+
+model:
+  neurons_layer1: 100
+  neurons_layer2: 100
+  neurons_layer3: 100
+  neurons_final: 10
+
+training:
+  optimizer: adam
+  n_epochs: 1
+  batch_size: 32
