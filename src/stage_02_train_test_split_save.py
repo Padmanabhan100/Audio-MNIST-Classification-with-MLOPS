@@ -25,6 +25,9 @@ def save_train_test_split(config_path,params_path):
     X_train, X_test, Y_train, Y_test = train_test_split(X,Y, train_size=train_size,random_state=random_state)
     logging.info("Train Test Split Successful")
 
+    # Create Directory to save
+    train_dir,test_dir = os.path.join('artifacts',config['local_data_dir'][1]), os.path.join('artifacts',config['local_data_dir'][2])
+    create_directory([train_dir,test_dir])
     # Save the Data
     np.save(f"artifacts/{config['local_data_dir'][1]}/X_train.npy",X_train)
     np.save(f"artifacts/{config['local_data_dir'][1]}/Y_train.npy",Y_train)
