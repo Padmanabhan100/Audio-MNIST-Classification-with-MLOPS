@@ -33,26 +33,33 @@ def get_data(config_path):
         for file in tqdm(os.listdir(os.path.join(source_data_dir,folder)),colour='blue'):
             # Load the data
             data_path = source_data_dir + folder + '/' + file
-            data = librosa.load(data_path)
+            audio,sample_rate = librosa.load(data_path)
             # Fetch the class of the audio from the name of the file
             label = file.split("_")[0]
-            # Append the data and its class in the data_list
-            data_list.append([data,label])
+            # Extract Features From the Audio
+            features = librosa.feature.mfcc(y=audio,sr=sample_rate,n_mfcc=40)
+            # Take Mean Of All The MFCCs(scale)
+            features = np.mean(features.T,axis=0)
+            # Append the features to the data_list
+            data_list.append([features,label])
+            
 
     # Log the current activity
     logging.info("All files with labels loaded successfully")
-
-    # Convert to a dataframe
-    df = pd.DataFrame(data_list,columns=['audio','class'])
-    # Save it as a csv file
+    # Save it in .npy format
     dir_to_save = os.path.join('artifacts',config['local_data_dir'][0])
     create_directory([dir_to_save])
     # Write the data in the folder
-    np.save(dir_to_save+"/X.npy",df['audio'].values)
-    np.save(dir_to_save+"/Y.npy",df['class'].values)
+    df = pd.DataFrame(data_list,columns=['features','labels'])
+    X = np.array(df['features'].to_list())
+    Y = np.array(df['labels'].to_list())
 
+    local_data_dir = config['local_data_dir'][0]
+
+    np.save(f"artifacts/{local_data_dir}/X.npy",X)
+    np.save(f"artifacts/{local_data_dir}/Y.npy",Y)
     # Log the current activity
-    logging.info("Raw Data Saved Successfully")
+    logging.info(f"Fetched & Extracted Data Successfully")
     
 
 if __name__ == "__main__":
@@ -66,11 +73,11 @@ if __name__ == "__main__":
     parsed_args = args.parse_args()
 
     try:
-        logging.info("============== Stage 01: Load and Save (Initiated) ==========================")
+        logging.info("============== Stage 01: Load, Extract & Save (Initiated) =========================")
         # Get the data 
         get_data(config_path=parsed_args.config)
         # Log the status of the first Stage
-        logging.info("============== Stage 01: Load and Save (SUCCESSFUL) ==========================\n\n")
+        logging.info("============== Stage 01: Load, Extract & Save (SUCCESSFUL) ========================\n\n")
     except Exception as e:
         logging.exception(e)
         raise e
