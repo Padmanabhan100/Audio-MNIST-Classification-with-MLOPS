@@ -1,0 +1,21 @@
+schema: '2.0'
+stages:
+  load_extract_save:
+    cmd: python src/stage_01_load_extract_save.py --config=config/config.yaml
+    deps:
+    - path: config/config.yaml
+      md5: fca0ea1de2e4d137887f850e232d462d
+      size: 512
+    - path: src/stage_01_load_extract_save.py
+      md5: b5ac713ab6ed26f9cad857a444096aff
+      size: 3229
+    - path: src/utils/all_utils.py
+      md5: bf1e33823cddfd1c3e275d557f8ec303
+      size: 925
+    outs:
+    - path: artifacts/clean_data/X.npy
+      md5: 1bff211284d2c28b5c21e995553e56f2
+      size: 80128
+    - path: artifacts/clean_data/Y.npy
+      md5: 756995622090a740c767d61b7521b182
+      size: 2128
