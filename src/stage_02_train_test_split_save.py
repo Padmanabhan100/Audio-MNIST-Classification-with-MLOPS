@@ -30,7 +30,7 @@ def save_train_test_split(config_path,params_path):
 
 
     # Perform Train-Test-Split 
-    train_size, random_state = int(params['train_test_split']['train_size']),(params['train_test_split']['random_state'])
+    train_size, random_state = int(params['train_test_split']['train_size']),int(params['train_test_split']['random_state'])
     X_train, X_test, Y_train, Y_test = train_test_split(X,Y, train_size=train_size,random_state=random_state)
     logging.info("Train Test Split Successful")
 
