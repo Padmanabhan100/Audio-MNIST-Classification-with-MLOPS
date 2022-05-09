@@ -145,3 +145,4 @@ artifacts/data/
 artifacts/test_data/
 /confusion_matrix.png
 /audio-mnist.zip
+/kaggle.json
