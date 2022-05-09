@@ -19,7 +19,10 @@ jobs:
           sudo apt-get install libsndfile1
           pip install --upgrade pip
           pip install -r requirements.txt
+          pip install kaggle
 
+          mv kaggle.json /home/runner/.kaggle
+          
           # Run the stages
           dvc repro -v
 
