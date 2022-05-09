@@ -7,5 +7,6 @@ sklearn
 tensorflow
 librosa
 tqdm
+kaggle
 pyYAML
 -e .

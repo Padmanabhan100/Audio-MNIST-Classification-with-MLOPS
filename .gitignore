@@ -141,5 +141,7 @@ config/secrets.yaml
 # ignore datafiles
 artifacts/clean_data/
 artifacts/train_data/
+artifacts/data/
 artifacts/test_data/
 /confusion_matrix.png
+/audio-mnist.zip

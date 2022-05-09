@@ -21,6 +21,20 @@ logging.basicConfig(filename=os.path.join(log_dir,"running_logs.log"),
 def get_data(config_path):
     # Read the Yaml file
     config = read_yaml(config_path)
+
+    # Create a local data folder and download the data using KAGGLE API
+    create_directory([config['source_data_dir'][0]])
+
+    # Use kaggle API to download the source data .zip file
+    os.system('kaggle datasets download -d sripaadsrinivasan/audio-mnist')
+
+    # Extract the data and dump it into artifacts
+    with zipfile.ZipFile("audio-mnist.zip",'r') as file:
+        file.extractall("artifacts")
+
+    # Delete the .zip file
+    os.remove("audio-mnist.zip")
+    
     # Load the data from the path in config file
     data_list = []
     # Loop through each folder(A speaker)
