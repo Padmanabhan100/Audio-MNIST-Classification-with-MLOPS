@@ -26,7 +26,7 @@ jobs:
           sudo mv kaggle.json ~/.kaggle/
           
           # Run the stages
-          dvc repro -v
+          dvc repro
 
           # Print this message in the report
           echo "Audio MNIST's Classifier Neural Network's Confusion Matrix" >> report.md
