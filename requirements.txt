@@ -6,6 +6,7 @@ seaborn
 sklearn
 tensorflow
 librosa
+dvc
 tqdm
 kaggle
 pyYAML
