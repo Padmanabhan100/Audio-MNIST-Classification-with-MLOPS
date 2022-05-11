@@ -17,9 +17,9 @@ jobs:
         run: |
           # Our ML Workflow Commands
           sudo apt-get install libsndfile1
-          pip install --upgrade pip
-          pip install -r requirements.txt
-          pip install kaggle
+          sudo -H pip install --upgrade pip
+          sudo -H pip install -r requirements.txt
+          sudo -H pip install kaggle
 
           mkdir ~/.kaggle
           
