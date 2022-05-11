@@ -7,7 +7,7 @@ artifacts:
   TENSORBOARD_ROOT_LOG_DIR: tensorboard_log_dir
 
 source_data_dir:
-  - D:/DATA SCIENCE/Kaggle Datasets/MNIST AUDIO/archive/data/
+  - artifacts/data
 
 local_data_dir:
   - clean_data

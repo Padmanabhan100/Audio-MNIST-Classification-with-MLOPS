@@ -17,16 +17,16 @@ jobs:
         run: |
           # Our ML Workflow Commands
           sudo apt-get install libsndfile1
-          sudo -H pip install --upgrade pip
-          sudo -H pip install -r requirements.txt
-          sudo -H pip install kaggle
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install kaggle
 
           mkdir ~/.kaggle
           
           sudo mv kaggle.json ~/.kaggle/
           
           # Run the stages
-          dvc repro
+          dvc repro -v
 
           # Print this message in the report
           echo "Audio MNIST's Classifier Neural Network's Confusion Matrix" >> report.md

@@ -45,7 +45,7 @@ def get_data(config_path):
         # Loop through each file(Speaker's audio) and load the data
         for file in tqdm(os.listdir(os.path.join(source_data_dir,folder)),colour='blue'):
             # Load the data
-            data_path = source_data_dir + folder + '/' + file
+            data_path = source_data_dir + "/" +folder + '/' + file
             audio,sample_rate = librosa.load(data_path)
             # Fetch the class of the audio from the name of the file
             label = file.split("_")[0]
