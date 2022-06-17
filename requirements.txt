@@ -6,7 +6,7 @@ seaborn
 sklearn
 tensorflow
 librosa
-dvc==1.0
+dvc==2.5.0
 tqdm
 kaggle
 pyYAML
