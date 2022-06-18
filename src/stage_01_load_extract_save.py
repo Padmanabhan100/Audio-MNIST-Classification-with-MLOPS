@@ -8,6 +8,8 @@ import numpy as np
 import librosa
 import zipfile
 
+os.system("chmod 600 /home/runner/.kaggle/kaggle.json")
+
 # Crete a logging pattern
 logging_str = "[%(asctime)s: %(levelname)s: %(module)s]: %(message)s"
 # name of the logging directory
