@@ -25,7 +25,7 @@ def metrics(config_path):
 
     # Load the trained model
     #path = "D:/DATA SCIENCE/Kaggle Datasets/MNIST AUDIO/archive/MNIST Audio Classifier.hdf5"
-    model = load_model("artifacts\checkpoints")
+    model = load_model("artifacts\model")
     #model = load_model(path)
 
     # Reading Train & Test Path From configuration file
