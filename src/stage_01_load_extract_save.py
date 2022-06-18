@@ -2,7 +2,6 @@ from src.utils.all_utils import read_yaml, create_directory
 import argparse
 import pandas as pd
 import os
-from glob import glob
 from tqdm import tqdm
 import logging
 import numpy as np
@@ -47,7 +46,7 @@ def get_data(config_path):
     # List of path of folders
     folder_list =  list(os.listdir(source_data_dir))
     # Remove the meta data file inside the folder
-    fodler_list.remove("audioMNIST_meta.txt")
+    folder_list.remove("audioMNIST_meta.txt")
     
     for folder in tqdm(folder_list,colour='green'):
         # Loop through each file(Speaker's audio) and load the data
