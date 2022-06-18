@@ -35,7 +35,8 @@ def metrics(config_path):
     train_path,test_path = os.path.join(os.getpwd(),config['local_data_dir'][1]), os.path.join(os.getcwd(),config['local_data_dir'][2])
 
     # Load the training and testing data
-    X_test,Y_test = np.load(f"{test_path}/X_test.npy"),np.load(f"{test_path}/Y_test.npy")
+    X_test_path,Y_test_path = os.path.join(test_path,"X_test.npy"), os.path.join(test_path, "Y_test.npy")
+    X_test,Y_test = np.load(X_test_path),np.load(Y_test_path)
     
     # Making Predictions on Test Set
     Y_pred = [np.argmax(x) for x in model.predict(X_test)]
