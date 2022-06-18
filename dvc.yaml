@@ -7,7 +7,6 @@ stages:
       - src/stage_01_load_extract_save.py
     outs:
       - artifacts/data
-      - audio-mnist.zip
       - artifacts/clean_data/X.npy
       - artifacts/clean_data/Y.npy
 
