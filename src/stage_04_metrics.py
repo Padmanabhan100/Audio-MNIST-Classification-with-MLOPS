@@ -23,13 +23,16 @@ def metrics(config_path):
     # Load the config file & params file
     config = read_yaml(config_path)
 
+    # Fetch the path where model resides
+    os.chdir('../../artifacts/model')
+    model_path = os.getcwd()
+    
     # Load the trained model
-    #path = "D:/DATA SCIENCE/Kaggle Datasets/MNIST AUDIO/archive/MNIST Audio Classifier.hdf5"
-    model = load_model("artifacts\model")
-    #model = load_model(path)
+    model = load_model(model_path)
 
     # Reading Train & Test Path From configuration file
-    train_path,test_path = os.path.join("artifacts",config['local_data_dir'][1]), os.path.join("artifacts",config['local_data_dir'][2])
+    os.chdir("..")
+    train_path,test_path = os.path.join(os.getpwd(),config['local_data_dir'][1]), os.path.join(os.getcwd(),config['local_data_dir'][2])
 
     # Load the training and testing data
     X_test,Y_test = np.load(f"{test_path}/X_test.npy"),np.load(f"{test_path}/Y_test.npy")
