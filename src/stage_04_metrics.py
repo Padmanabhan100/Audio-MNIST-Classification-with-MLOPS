@@ -24,7 +24,7 @@ def metrics(config_path):
     config = read_yaml(config_path)
 
     # Fetch the path where model resides
-    os.chdir('../../artifacts/model')
+    os.chdir('../artifacts/model')
     model_path = os.getcwd()
     
     # Load the trained model
