@@ -25,14 +25,12 @@ def metrics(config_path):
 
     # Fetch the path where model resides
     model_path = os.path.join("artifacts",config['artifacts']['TRAINED_MODEL_DIR'])
-    print(os.getcwd())
     
     # Load the trained model
     model = load_model(model_path)
 
     # Reading Train & Test Path From configuration file
-    os.chdir("..")
-    train_path,test_path = os.path.join(os.getpwd(),config['local_data_dir'][1]), os.path.join(os.getcwd(),config['local_data_dir'][2])
+    train_path,test_path = os.path.join(config['artifacts']['ARTIFACTS_DIR'],config['local_data_dir'][1]), os.path.join(config['artifacts']['ARTIFACTS_DIR'],config['local_data_dir'][2])
 
     # Load the training and testing data
     X_test_path,Y_test_path = os.path.join(test_path,"X_test.npy"), os.path.join(test_path, "Y_test.npy")
