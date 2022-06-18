@@ -2,6 +2,7 @@ from src.utils.all_utils import read_yaml, create_directory
 import argparse
 import pandas as pd
 import os
+from glob import glob
 from tqdm import tqdm
 import logging
 import numpy as np
@@ -42,8 +43,13 @@ def get_data(config_path):
     data_list = []
     # Loop through each folder(A speaker)
     source_data_dir = config['source_data_dir'][0]
-    print(source_data_dir[0])
-    for folder in tqdm(os.listdir(source_data_dir)[1:60],colour='green'):
+    
+    # List of path of folders
+    folder_list =  list(os.listdir(source_data_dir))
+    # Remove the meta data file inside the folder
+    fodler_list.remove("audioMNIST_meta.txt")
+    
+    for folder in tqdm(folder_list,colour='green'):
         # Loop through each file(Speaker's audio) and load the data
         for file in tqdm(os.listdir(os.path.join(source_data_dir,folder)),colour='blue'):
             # Load the data
