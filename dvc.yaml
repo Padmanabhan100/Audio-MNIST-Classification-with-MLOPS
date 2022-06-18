@@ -6,7 +6,6 @@ stages:
       - src/utils/all_utils.py
       - src/stage_01_load_extract_save.py
     outs:
-      - artifacts/data
       - artifacts/clean_data/X.npy
       - artifacts/clean_data/Y.npy
 
