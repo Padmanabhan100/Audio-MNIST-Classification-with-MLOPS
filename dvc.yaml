@@ -5,7 +5,6 @@ stages:
       - config/config.yaml
       - src/utils/all_utils.py
       - src/stage_01_load_extract_save.py
-      - artifacts/data
     outs:
       - artifacts/data
       - artifacts/clean_data/X.npy
